@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227155713) do
+ActiveRecord::Schema.define(version: 20180301140100) do
 
   create_table "authers", force: :cascade do |t|
     t.string "name"
     t.string "penname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "book_authors", force: :cascade do |t|
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_book_authors_on_book_id"
   end
 
 # Could not dump table "books" because of following StandardError
