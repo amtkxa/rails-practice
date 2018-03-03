@@ -1,4 +1,7 @@
 class Book < ApplicationRecord
+  # enum型の定義
+  enum status: %w(reservation now_on_sale end_of_point)
+
   # スコープ
   scope :constly, -> { where("price > ?", 3000)}
   scope :written_about, ->(theme) { where("name like ?", "%#{theme}%")}
