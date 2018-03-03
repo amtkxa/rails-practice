@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   # enum型の定義
-  enum status: %w(reservation now_on_sale end_of_point)
+  enum status: {reservation: 0, now_on_sale: 1, end_of_point: 2}
 
   # スコープ
   scope :constly, -> { where("price > ?", 3000)}
