@@ -6,11 +6,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = create_user.created_events.build(event_params)
+    @event = current_user.created_events.build(event_params)
     if @event.save
       redirect_to @event, notice: '作成しました'
     else
-      renser :new
+      render :new
     end
   end
 

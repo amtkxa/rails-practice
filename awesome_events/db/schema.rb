@@ -25,21 +25,13 @@ ActiveRecord::Schema.define(version: 20180317052714) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.string "nickname"
-    t.string "image_url"
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.string "nickname", null: false
+    t.string "image_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "usrs", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.string "nickname"
-    t.string "image_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
 end
